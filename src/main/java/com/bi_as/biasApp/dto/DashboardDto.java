@@ -1,0 +1,4 @@
+package com.bi_as.biasApp.dto;
+
+public class DashboardDto {
+}
