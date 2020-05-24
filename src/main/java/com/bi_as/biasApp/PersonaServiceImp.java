@@ -1,5 +1,4 @@
-
-package com.sinfloo.biasApp;
+package com.bi_as.biasApp;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class PersonaServiceImp implements PersonaService{
     @Autowired
     private PersonaRepositorio repositorio;
-    
+
     @Override
     public List<Persona> listar() {
         return repositorio.findAll();
@@ -36,9 +35,7 @@ public class PersonaServiceImp implements PersonaService{
         if(p!=null){
             repositorio.delete(p);
         }
-       return p;
+        return p;
     }
-    
-    
-    
+
 }

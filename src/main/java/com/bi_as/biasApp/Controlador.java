@@ -1,6 +1,4 @@
-
-package com.sinfloo.biasApp;
-
+package com.bi_as.biasApp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping({"/personas"})
 public class Controlador {
-    
+
     @Autowired
     PersonaService service;
-    
+
     @GetMapping
     public List<Persona>listar(){
         return service.listar();

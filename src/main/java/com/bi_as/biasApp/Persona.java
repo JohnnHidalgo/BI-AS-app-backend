@@ -1,19 +1,17 @@
-
-package com.sinfloo.biasApp;
-
+package com.bi_as.biasApp;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "personas")
 public class Persona {
-    
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
     private String name;
-    @Column 
+    @Column
     private String apellidos;
 
     public int getId() {
@@ -39,6 +37,4 @@ public class Persona {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
-    
 }

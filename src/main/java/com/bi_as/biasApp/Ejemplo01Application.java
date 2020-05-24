@@ -1,4 +1,4 @@
-package com.sinfloo.biasApp;
+package com.bi_as.biasApp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

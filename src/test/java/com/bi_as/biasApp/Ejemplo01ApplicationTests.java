@@ -1,4 +1,4 @@
-package com.sinfloo.biasApp;
+package com.bi_as.biasApp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

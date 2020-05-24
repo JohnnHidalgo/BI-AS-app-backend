@@ -1,5 +1,4 @@
-
-package com.sinfloo.biasApp;
+package com.bi_as.biasApp;
 
 import java.util.List;
 
