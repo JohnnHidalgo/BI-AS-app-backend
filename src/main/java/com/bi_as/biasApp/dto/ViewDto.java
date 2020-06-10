@@ -1,5 +1,7 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.View;
+
 public class ViewDto {
     private Integer idView;
     private String name;
@@ -11,13 +13,13 @@ public class ViewDto {
     public ViewDto() {
     }
 
-    public ViewDto(Integer idView, String name, String txUser, String txHost, String txDate, int active) {
-        this.idView = idView;
-        this.name = name;
-        this.txUser = txUser;
-        this.txHost = txHost;
-        this.txDate = txDate;
-        this.active = active;
+    public ViewDto(View view) {
+        this.idView = view.getIdView();
+        this.name = view.getName();
+        this.txUser = view.getTxUser();
+        this.txHost = view.getTxHost();
+        this.txDate = view.getTxDate();
+        this.active = view.getActive();
     }
 
     public Integer getIdView() {

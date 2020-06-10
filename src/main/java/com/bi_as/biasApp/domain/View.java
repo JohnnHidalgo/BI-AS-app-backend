@@ -166,7 +166,10 @@ public class View implements Serializable {
 
     @Override
     public String toString() {
-        return "proyectokajoy.biasgenerateentities.View[ idView=" + idView + " ]";
+        return "Vista:{" +
+                "idVista="+idView+
+                "Nombre="+name+"" +
+                "}";
     }
     
 }
