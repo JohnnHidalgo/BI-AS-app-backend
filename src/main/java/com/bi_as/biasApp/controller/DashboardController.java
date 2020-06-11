@@ -17,7 +17,7 @@ import java.util.List;
 public class DashboardController {
 
 
-    DashboardService dashboardService;
+    private  DashboardService dashboardService;
 
 
     @Autowired
@@ -28,9 +28,9 @@ public class DashboardController {
     @RequestMapping(value = "/",method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
     List<DashboardDto> all(){
-        List<DashboardDto> userDtoList=new ArrayList<>();
-        for(DashboardDto userDto:dashboardService.findAllDashboard()){
-            userDtoList.add(userDto);
+        List<DashboardDto> dashboardDtoList=new ArrayList<>();
+        for(DashboardDto dashboardDto:dashboardService.findAllDashboard()){
+            dashboardDtoList.add(dashboardDto);
         }
-        return userDtoList;
+        return dashboardDtoList;
     }}

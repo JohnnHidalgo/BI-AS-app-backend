@@ -19,7 +19,7 @@ public class GraphicService {
         this.graphicRepository = graphicRepository;
     }
 
-    public List<GraphicDto> findAllDashboard(){
+    public List<GraphicDto> findAllGraphic(){
         List<GraphicDto> GraphicDtoList= new ArrayList<>();
         for (Graphic graphic:graphicRepository.findAll()) {
             GraphicDtoList.add(new GraphicDto(graphic));
