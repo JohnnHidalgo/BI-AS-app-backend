@@ -1,5 +1,7 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.Graphic;
+
 public class GraphicDto {
 
     private Integer idGraphic;
@@ -9,7 +11,13 @@ public class GraphicDto {
     private String txDate;
     private int active;
 
-    public GraphicDto() {
+    public GraphicDto(Graphic graphic) {
+        this.idGraphic=graphic.getIdGraphic();
+        this.name=graphic.getName();
+        this.txUser=graphic.getTxHost();
+        this.txHost=graphic.getTxHost();
+        this.txDate=graphic.getTxDate();
+        this.active=graphic.getActive();
     }
 
 

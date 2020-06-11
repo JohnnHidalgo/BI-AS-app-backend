@@ -1,11 +1,16 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.Graphictype;
+
 public class GraphictypeDto {
     private Integer idGraphictype;
     private String name;
     private int active;
 
-    public GraphictypeDto() {
+    public GraphictypeDto(Graphictype graphictype) {
+        this.idGraphictype=graphictype.getIdGraphictype();
+        this.name=graphictype.getName();
+        this.active=graphictype.getActive();
     }
 
     public GraphictypeDto(Integer idGraphictype, String name, int active) {
@@ -13,6 +18,8 @@ public class GraphictypeDto {
         this.name = name;
         this.active = active;
     }
+
+
 
     public Integer getIdGraphictype() {
         return idGraphictype;

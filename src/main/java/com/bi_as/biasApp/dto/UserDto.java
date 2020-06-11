@@ -1,5 +1,7 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.User;
+
 public class UserDto {
 
     private Integer idUser;
@@ -11,7 +13,15 @@ public class UserDto {
     private String mail;
     private String password;
 
-    public UserDto() {
+    public UserDto(User user) {
+        this.idUser=user.getIdUser();
+        this.nicknameUser=user.getNicknameUser();
+        this.name=user.getName();
+        this.secondName=user.getSecondName();
+        this.lastName=user.getLastName();
+        this.secondLastName=user.getSecondLastName();
+        this.mail=user.getSecondLastName();
+        this.password=user.getPassword();
     }
 
     public UserDto(Integer idUser, String nicknameUser, String name, String secondName, String lastName, String secondLastName, String mail, String password) {

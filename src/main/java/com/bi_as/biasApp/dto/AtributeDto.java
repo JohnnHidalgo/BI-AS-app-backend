@@ -1,5 +1,6 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.Atribute;
 import com.bi_as.biasApp.domain.Graphic;
 
 import javax.persistence.*;
@@ -10,7 +11,10 @@ public class AtributeDto {
     private int active;
     private Graphic graphicidgraphic;
 
-    public AtributeDto() {
+    public AtributeDto(Atribute atribute) {
+        this.idAtribute=atribute.getIdAtribute();
+        this.data=atribute.getData();
+        this.active=atribute.getActive();
     }
 
     public AtributeDto(Integer idAtribute, String data, int active, Graphic graphicidgraphic) {
@@ -58,7 +62,6 @@ public class AtributeDto {
                 "idAtribute=" + idAtribute +
                 ", data='" + data + '\'' +
                 ", active=" + active +
-                ", graphicidgraphic=" + graphicidgraphic +
                 '}';
     }
 }

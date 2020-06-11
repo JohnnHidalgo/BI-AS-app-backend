@@ -1,5 +1,7 @@
 package com.bi_as.biasApp.dto;
 
+import com.bi_as.biasApp.domain.Dashboard;
+
 public class DashboardDto {
     private Integer idDashboard;
     private String name;
@@ -8,7 +10,14 @@ public class DashboardDto {
     private String txDate;
     private int active;
 
-    public DashboardDto() {
+    public DashboardDto(Dashboard dashboard) {
+        this.idDashboard=dashboard.getIdDashboard();
+        this.name=dashboard.getName();
+        this.txUser=dashboard.getTxUser();
+        this.txHost=dashboard.getTxHost();
+        this.txDate=dashboard.getTxDate();
+        this.active=dashboard.getActive();
+
     }
 
     public DashboardDto(Integer idDashboard, String name, String txUser, String txHost, String txDate, int active) {
