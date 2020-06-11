@@ -18,7 +18,7 @@ public class DashboardService {
         this.dashboardRepository = dashboardRepository;
     }
 
-    public List<DashboardDto> findALlDashboard(){
+    public List<DashboardDto> findAllDashboard(){
         List<DashboardDto> dashboardDtoList=new ArrayList<>();
         for(Dashboard dashboard:dashboardRepository.findAll()){
             dashboardDtoList.add(new DashboardDto(dashboard));
