@@ -6,6 +6,8 @@ import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.dto.UserDto;
 import com.bi_as.biasApp.service.UserService;
 import com.bi_as.biasApp.service.UserServiceX;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     private UserService userService;
+
+    private static final Logger LOGGER= LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     public UserController(UserService userService) {
@@ -31,6 +35,33 @@ public class UserController {
         }
         return userDtoList;
     }
+
+    @PostMapping("/add/")
+    public User agregar(@RequestBody User p){
+        LOGGER.info("Agregando usuario");
+        return userService.add(p);
+    }
+
+
+    @PostMapping("/login/")
+    public User login(@RequestBody User user){
+        LOGGER.info(user.getNicknameUser());
+
+        //        String[] arraruuser=user.split("@");
+//        List<UserDto> userDtoList=new ArrayList<>();
+//        for(UserDto userDto:userService.findAllUser()){
+//            if (userDto.getNicknameUser().equals(arraruuser[0]) && userDto.getPassword().equals(arraruuser[1])){
+//                LOGGER.info("Si se encontro");
+//            }else {
+//                LOGGER.info("No se encontro");
+//            }
+//        }
+
+        return userService.findIOneUSer(1);
+
+    }
+
+
 
 
 //
@@ -53,10 +84,7 @@ public class UserController {
 //    public List<User>listar(){
 //        return service.listar();
 //    }
-//    @PostMapping
-//    public User agregar(@RequestBody User p){
-//        return service.add(p);
-//    }
+
 //    @GetMapping(path = {"/{id}"})
 //    public User listarId(@PathVariable("id")int id){
 //        return service.listarId(id);
