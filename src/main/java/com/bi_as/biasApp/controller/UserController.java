@@ -32,6 +32,18 @@ public class UserController {
         return userDtoList;
     }
 
+
+//
+//    @RequestMapping(value = "/",method = RequestMethod.P,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    List<UserDto> all(){
+//        List<UserDto> userDtoList=new ArrayList<>();
+//        for(UserDto userDto:userService.findAllUser()){
+//            userDtoList.add(userDto);
+//        }
+//        return userDtoList;
+//    }
+
 //
 //
 //    @Autowired

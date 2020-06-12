@@ -4,6 +4,8 @@ package com.bi_as.biasApp.service;
 import com.bi_as.biasApp.dao.UserRepository;
 import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.dto.UserDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.List;
 @Service
 public class UserService {
     UserRepository userRepository;
+
+    private static final Logger LOGGER= LoggerFactory.getLogger(UserService.class);
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -26,4 +30,22 @@ public class UserService {
         }
         return UserDtoList;
     }
+
+    public User verifyUser(User user){
+        User user2=userRepository.findByNameAndPassword(user.getNicknameUser(),user.getPassword());
+       // User user2=userRepository.findByNameAndPassword(user.getNicknameUser(),user.getPassword());
+        LOGGER.info("ENTRA");
+
+        if (user2 == null) {
+            LOGGER.info("no se encontro");
+        }else {
+            LOGGER.info("SSSSSSIIIIIIII se EEEEEENNNNCCCCOOOONNNNTTTRRRROOO");
+        }
+
+        return user2;
+    }
+
+
+
+
 }
