@@ -1,7 +1,7 @@
 package com.bi_as.biasApp.controller;
 
-import com.bi_as.biasApp.dto.ViewDto;
-import com.bi_as.biasApp.service.ViewService;
+import com.bi_as.biasApp.dto.GraphicDto;
+import com.bi_as.biasApp.service.GraphicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -13,25 +13,23 @@ import java.util.ArrayList;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping("/k1/vista")
-public class ViewController {
+@RequestMapping("/k1/graphic")
+public class GraphicController {
 
-    private ViewService viewService;
+    GraphicService graphicService;
 
     @Autowired
-    public ViewController(ViewService viewService) {
-        this.viewService = viewService;
+    public GraphicController(GraphicService graphicService) {
+        this.graphicService = graphicService;
     }
 
     @RequestMapping(value = "/",method = RequestMethod.GET,
-    produces = MediaType.APPLICATION_JSON_VALUE)
-    List<ViewDto> all(){
-        List<ViewDto> viewDtoList=new ArrayList<>();
-        for(ViewDto viewDto:viewService.findAllViews()){
-            viewDtoList.add(viewDto);
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    List<GraphicDto> all(){
+        List<GraphicDto> graphicDtoList=new ArrayList<>();
+        for(GraphicDto graphicDto:graphicService.findAllGraphic()){
+            graphicDtoList.add(graphicDto);
         }
-        return viewDtoList;
+        return graphicDtoList;
     }
-
-
 }
