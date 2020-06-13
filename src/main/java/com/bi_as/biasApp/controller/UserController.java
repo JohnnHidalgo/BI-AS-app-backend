@@ -42,20 +42,12 @@ public class UserController {
         return userService.add(user);
     }
 
-    @PostMapping("/login/{user}")
-    public User login(@RequestBody String user){
-        LOGGER.info("UUUUUUUUUUUUUUUUUSSSSSSSSSSSSEEEEEEEEEEEEERRRRRRRRRRR"+user);
-        //LOGGER.info(user.());
-        //        String[] arraruuser=user.split("@");
-//        List<UserDto> userDtoList=new ArrayList<>();
-//        for(UserDto userDto:userService.findAllUser()){
-//            if (userDto.getNicknameUser().equals(arraruuser[0]) && userDto.getPassword().equals(arraruuser[1])){
-//                LOGGER.info("Si se encontro");
-//            }else {
-//                LOGGER.info("No se encontro");
-//            }
-//        }
-        return userService.findIOneUSer(1);
+    @PostMapping("/login")
+    public User login(@RequestBody User user){
+
+        System.out.println("UUUUUUUUUUUUUUUUUSSSSSSSSSSSSEEEEEEEEEEEEERRRRRRRRRRR    ---  "+user.getNicknameUser());
+
+        return userService.verifyUser(user);
 
     }
 
