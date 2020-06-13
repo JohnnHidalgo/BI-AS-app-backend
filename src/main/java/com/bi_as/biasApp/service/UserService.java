@@ -54,6 +54,15 @@ public class UserService {
     }
 
 
+    public User getUserByid(int idUser){
+        User user=userRepository.findByIdUser(idUser);
+        if(user==null){
+            LOGGER.info("User vacio");
+        }
+        return user;
+    }
+
+
 
 
 }

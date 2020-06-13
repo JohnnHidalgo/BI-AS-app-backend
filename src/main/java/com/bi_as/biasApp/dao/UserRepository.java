@@ -12,6 +12,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     User save(User p);
     void delete(User p);
 
+    @Query(value = "select * from user where id_user=?1 LIMIT 1",nativeQuery = true)
+    User findByIdUser(int idUser);
+
     @Query(value = "select * from user where nickname_user=?1 and password=?2  LIMIT 1",nativeQuery = true)
     User findByNameAndPassword(String n,String p);
 }

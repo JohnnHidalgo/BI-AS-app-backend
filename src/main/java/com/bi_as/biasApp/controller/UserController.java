@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.bi_as.biasApp.domain.User;
+import com.bi_as.biasApp.dto.GraphicDto;
 import com.bi_as.biasApp.dto.UserDto;
 import com.bi_as.biasApp.service.UserService;
 import com.bi_as.biasApp.service.UserServiceX;
@@ -50,6 +51,13 @@ public class UserController {
         return userService.verifyUser(user);
 
     }
+
+    @RequestMapping("/{id}")
+    public UserDto getGraphicByIdGraphic(@PathVariable("id") Integer idUser){
+        LOGGER.info("Obteniendo id graphic");
+        return new UserDto(userService.getUserByid(idUser));
+    }
+
 
 
 

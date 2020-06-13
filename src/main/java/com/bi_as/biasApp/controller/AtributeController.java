@@ -44,9 +44,9 @@ public class AtributeController {
     }
 
 
-    @PostMapping("/{id}")
-    public Atribute getViewByidView(@RequestBody int id){
-        return atributeService.getAtributeByIdAtribute(id);
+    @RequestMapping("/{id}")
+    public AtributeDto getViewByidView(@PathVariable("id") Integer id){
+        return new AtributeDto(atributeService.getAtributeByIdAtribute(id));
     }
 
 

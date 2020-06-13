@@ -42,10 +42,10 @@ public class ViewController {
         return viewService.addView(view);
     }
 
-    @PostMapping("/add/")
-    public View getIdViewByView(@RequestBody View view){
-        LOGGER.info("Agregando usuari   o");
-        return viewService.addView(view);
+    @RequestMapping("/{id}")
+    public ViewDto getIdViewByView(@PathVariable("id") Integer id){
+        LOGGER.info("Entrando por id "+id);
+        return new ViewDto(viewService.getViewByidView(id));
     }
 
 

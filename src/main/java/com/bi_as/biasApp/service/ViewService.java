@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class ViewService {
+
     ViewRepository viewRepository;
 
     @Autowired
@@ -33,7 +34,11 @@ public class ViewService {
     }
 
     public View getViewByidView(int idView){
+//        View view= viewRepository.findByName("MiVista1c");
         View view= viewRepository.findByIdView(idView);
+        if(view==null){
+            System.out.println("Es null la vista");
+        }
         return view;
     }
 }
