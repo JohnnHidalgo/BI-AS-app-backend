@@ -33,4 +33,9 @@ public class AtributeService {
         atributeRepository.save(atribute);
         return atribute;
     }
+
+    public Atribute getAtributeByIdAtribute(int idAtribute){
+        Atribute atribute=atributeRepository.findByIdAtribute(idAtribute);
+        return atribute;
+    }
 }

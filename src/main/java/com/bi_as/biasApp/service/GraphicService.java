@@ -31,4 +31,10 @@ public class GraphicService {
         graphicRepository.save(graphic);
         return graphic;
     }
+
+    public Graphic getGraphicByidGraphic(int idGraphic){
+        Graphic graphic= graphicRepository.findByIdGraphic(idGraphic);
+        return graphic;
+    }
+
 }

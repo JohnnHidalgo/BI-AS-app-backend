@@ -42,6 +42,11 @@ public class ViewController {
         return viewService.addView(view);
     }
 
+    @PostMapping("/add/")
+    public View getIdViewByView(@RequestBody View view){
+        LOGGER.info("Agregando usuari   o");
+        return viewService.addView(view);
+    }
 
 
 

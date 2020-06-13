@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ViewRepository extends JpaRepository<View,Integer> {
     List<View> findByName(String viewName);
-    List<View> findByIdView(int idView);
+    View findByIdView(int idView);
 }

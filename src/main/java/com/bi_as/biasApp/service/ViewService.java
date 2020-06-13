@@ -31,4 +31,9 @@ public class ViewService {
         viewRepository.save(view);
         return view;
     }
+
+    public View getViewByidView(int idView){
+        View view= viewRepository.findByIdView(idView);
+        return view;
+    }
 }

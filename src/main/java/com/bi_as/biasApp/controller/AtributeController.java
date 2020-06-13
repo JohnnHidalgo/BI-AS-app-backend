@@ -21,6 +21,7 @@ public class AtributeController {
     private AtributeService atributeService;
     private static final Logger LOGGER= LoggerFactory.getLogger(UserController.class);
 
+
     @Autowired
     public AtributeController(AtributeService atributeService) {
         this.atributeService = atributeService;
@@ -42,6 +43,11 @@ public class AtributeController {
         return atributeService.addView(atribute);
     }
 
+
+    @PostMapping("/{id}")
+    public Atribute getViewByidView(@RequestBody int id){
+        return atributeService.getAtributeByIdAtribute(id);
+    }
 
 
 

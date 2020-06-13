@@ -43,5 +43,10 @@ public class DashboardController {
         return dashboardService.addView(dashboard);
     }
 
+    @PostMapping("/{id}")
+    public Dashboard getDashboardByIdDash(@RequestBody int idDashboard){
+        LOGGER.info("Agregando usuario");
+        return dashboardService.getDashboardByIdDashboard(idDashboard);
+    }
 
 }

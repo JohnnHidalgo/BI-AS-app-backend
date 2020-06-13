@@ -40,4 +40,10 @@ public class GraphicController {
         LOGGER.info("Agregando usuario");
         return graphicService.addView(graphic);
     }
+    @PostMapping("/{id}")
+    public Graphic getGraphicByIdGraphic(@RequestBody int idgraphic){
+        LOGGER.info("Obteniendo id graphic");
+        return graphicService.getGraphicByidGraphic(idgraphic);
+    }
+
 }

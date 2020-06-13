@@ -27,8 +27,12 @@ public class DashboardService {
     }
 
     public Dashboard addView(Dashboard dashboard) {
-
         dashboardRepository.save(dashboard);
+        return dashboard;
+    }
+
+    public Dashboard getDashboardByIdDashboard(int idDashboard){
+        Dashboard dashboard=dashboardRepository.findByIdDashboard(idDashboard);
         return dashboard;
     }
 }
