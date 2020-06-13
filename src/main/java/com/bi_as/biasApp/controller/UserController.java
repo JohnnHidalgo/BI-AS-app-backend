@@ -19,7 +19,7 @@ public class UserController {
 
     private UserService userService;
 
-    private static final Logger LOGGER= LoggerFactory.getLogger(UserService.class);
+    private static final Logger LOGGER= LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     public UserController(UserService userService) {
@@ -37,16 +37,15 @@ public class UserController {
     }
 
     @PostMapping("/add/")
-    public User agregar(@RequestBody User p){
+    public User add(@RequestBody User user){
         LOGGER.info("Agregando usuario");
-        return userService.add(p);
+        return userService.add(user);
     }
 
-
-    @PostMapping("/login/")
-    public User login(@RequestBody User user){
-        LOGGER.info(user.getNicknameUser());
-
+    @PostMapping("/login/{user}")
+    public User login(@RequestBody String user){
+        LOGGER.info("UUUUUUUUUUUUUUUUUSSSSSSSSSSSSEEEEEEEEEEEEERRRRRRRRRRR"+user);
+        //LOGGER.info(user.());
         //        String[] arraruuser=user.split("@");
 //        List<UserDto> userDtoList=new ArrayList<>();
 //        for(UserDto userDto:userService.findAllUser()){
@@ -56,7 +55,6 @@ public class UserController {
 //                LOGGER.info("No se encontro");
 //            }
 //        }
-
         return userService.findIOneUSer(1);
 
     }

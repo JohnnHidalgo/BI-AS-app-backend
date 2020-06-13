@@ -1,20 +1,23 @@
 package com.bi_as.biasApp.controller;
 
+import com.bi_as.biasApp.domain.User;
+import com.bi_as.biasApp.domain.View;
 import com.bi_as.biasApp.dto.ViewDto;
+import com.bi_as.biasApp.service.UserService;
 import com.bi_as.biasApp.service.ViewService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping("/k1/vista")
+@RequestMapping("/k1/view")
 public class ViewController {
+    private static final Logger LOGGER= LoggerFactory.getLogger(ViewController.class);
 
     private ViewService viewService;
 
@@ -32,6 +35,21 @@ public class ViewController {
         }
         return viewDtoList;
     }
+
+    @PostMapping("/add/")
+    public View addView(@RequestBody View view){
+        LOGGER.info("Agregando usuario");
+        return viewService.addView(view);
+    }
+
+
+
+
+
+
+
+
+
 
 
 }

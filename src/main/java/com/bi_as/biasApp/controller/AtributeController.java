@@ -2,14 +2,14 @@ package com.bi_as.biasApp.controller;
 
 
 import com.bi_as.biasApp.domain.Atribute;
+import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.dto.AtributeDto;
 import com.bi_as.biasApp.service.AtributeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +19,7 @@ import java.util.List;
 public class AtributeController {
 
     private AtributeService atributeService;
+    private static final Logger LOGGER= LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     public AtributeController(AtributeService atributeService) {
@@ -33,4 +34,17 @@ public class AtributeController {
         }
     return atributeDtoList;
     }
+
+
+    @PostMapping("/add/")
+    public Atribute addView(@RequestBody Atribute atribute){
+        LOGGER.info("Agregando usuario");
+        return atributeService.addView(atribute);
+    }
+
+
+
+
+
+
 }

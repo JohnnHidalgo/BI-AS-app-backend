@@ -27,4 +27,8 @@ public class GraphicService {
         return GraphicDtoList;
     }
 
+    public Graphic addView(Graphic graphic) {
+        graphicRepository.save(graphic);
+        return graphic;
+    }
 }
