@@ -31,6 +31,14 @@ public class UserService {
         return UserDtoList;
     }
 
+    public User add(User user){
+        userRepository.save(user);
+        return user;
+    }
+    public User findIOneUSer(int id){
+        return userRepository.findOne(id);
+    }
+
     public User verifyUser(User user){
         User user2=userRepository.findByNameAndPassword(user.getNicknameUser(),user.getPassword());
        // User user2=userRepository.findByNameAndPassword(user.getNicknameUser(),user.getPassword());
