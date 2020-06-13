@@ -25,4 +25,10 @@ public class ViewService {
         }
         return viewDtoList;
     }
+
+
+    public View addView(View view){
+        viewRepository.save(view);
+        return view;
+    }
 }

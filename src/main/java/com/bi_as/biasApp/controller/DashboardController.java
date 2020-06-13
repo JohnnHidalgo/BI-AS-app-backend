@@ -3,12 +3,11 @@ package com.bi_as.biasApp.controller;
 import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.dto.DashboardDto;
 import com.bi_as.biasApp.service.DashboardService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +18,7 @@ public class DashboardController {
 
 
     private  DashboardService dashboardService;
+    private static final Logger LOGGER= LoggerFactory.getLogger(UserController.class);
 
 
     @Autowired
@@ -34,4 +34,14 @@ public class DashboardController {
             dashboardDtoList.add(dashboardDto);
         }
         return dashboardDtoList;
-    }}
+    }
+
+
+    @PostMapping("/add/")
+    public Dashboard addView(@RequestBody Dashboard dashboard){
+        LOGGER.info("Agregando usuario");
+        return dashboardService.addView(dashboard);
+    }
+
+
+}

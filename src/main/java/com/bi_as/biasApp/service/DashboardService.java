@@ -25,4 +25,10 @@ public class DashboardService {
         }
         return dashboardDtoList;
     }
+
+    public Dashboard addView(Dashboard dashboard) {
+
+        dashboardRepository.save(dashboard);
+        return dashboard;
+    }
 }
