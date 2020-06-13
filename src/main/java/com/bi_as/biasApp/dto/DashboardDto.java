@@ -31,6 +31,9 @@ public class DashboardDto {
         this.idUser = idUser;
     }
 
+    public DashboardDto() {
+    }
+
     public Integer getIdDashboard() {
         return idDashboard;
     }

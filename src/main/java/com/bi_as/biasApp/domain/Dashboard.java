@@ -27,14 +27,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "dashboard")
-@NamedQueries({
-    @NamedQuery(name = "Dashboard.findAll", query = "SELECT d FROM Dashboard d"),
-    @NamedQuery(name = "Dashboard.findByIdDashboard", query = "SELECT d FROM Dashboard d WHERE d.idDashboard = :idDashboard"),
-    @NamedQuery(name = "Dashboard.findByName", query = "SELECT d FROM Dashboard d WHERE d.name = :name"),
-    @NamedQuery(name = "Dashboard.findByTxUser", query = "SELECT d FROM Dashboard d WHERE d.txUser = :txUser"),
-    @NamedQuery(name = "Dashboard.findByTxHost", query = "SELECT d FROM Dashboard d WHERE d.txHost = :txHost"),
-    @NamedQuery(name = "Dashboard.findByTxDate", query = "SELECT d FROM Dashboard d WHERE d.txDate = :txDate"),
-    @NamedQuery(name = "Dashboard.findByActive", query = "SELECT d FROM Dashboard d WHERE d.active = :active")})
+//@NamedQueries({
+//    @NamedQuery(name = "Dashboard.findAll", query = "SELECT d FROM Dashboard d"),
+//    @NamedQuery(name = "Dashboard.findByIdDashboard", query = "SELECT d FROM Dashboard d WHERE d.idDashboard = :idDashboard"),
+//    @NamedQuery(name = "Dashboard.findByName", query = "SELECT d FROM Dashboard d WHERE d.name = :name"),
+//    @NamedQuery(name = "Dashboard.findByTxUser", query = "SELECT d FROM Dashboard d WHERE d.txUser = :txUser"),
+//    @NamedQuery(name = "Dashboard.findByTxHost", query = "SELECT d FROM Dashboard d WHERE d.txHost = :txHost"),
+//    @NamedQuery(name = "Dashboard.findByTxDate", query = "SELECT d FROM Dashboard d WHERE d.txDate = :txDate"),
+//    @NamedQuery(name = "Dashboard.findByActive", query = "SELECT d FROM Dashboard d WHERE d.active = :active")})
 public class Dashboard implements Serializable {
 
     private static final long serialVersionUID = 1L;
