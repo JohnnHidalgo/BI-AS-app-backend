@@ -43,11 +43,12 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public User login(@RequestBody User user){
+    public UserDto login(@RequestBody User user){
 
         System.out.println("UUUUUUUUUUUUUUUUUSSSSSSSSSSSSEEEEEEEEEEEEERRRRRRRRRRR    ---  "+user.getNicknameUser());
 
-        return userService.verifyUser(user);
+        UserDto userDto=new UserDto(userService.verifyUser(user));
+        return userDto;
 
     }
 
