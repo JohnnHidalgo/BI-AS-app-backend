@@ -9,6 +9,7 @@ public class DashboardDto {
     private String txHost;
     private String txDate;
     private int active;
+    private int idUser;
 
     public DashboardDto(Dashboard dashboard) {
         this.idDashboard=dashboard.getIdDashboard();
@@ -20,13 +21,14 @@ public class DashboardDto {
 
     }
 
-    public DashboardDto(Integer idDashboard, String name, String txUser, String txHost, String txDate, int active) {
+    public DashboardDto(Integer idDashboard, String name, String txUser, String txHost, String txDate, int active, int idUser) {
         this.idDashboard = idDashboard;
         this.name = name;
         this.txUser = txUser;
         this.txHost = txHost;
         this.txDate = txDate;
         this.active = active;
+        this.idUser = idUser;
     }
 
     public Integer getIdDashboard() {
@@ -75,6 +77,14 @@ public class DashboardDto {
 
     public void setActive(int active) {
         this.active = active;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
     }
 
     @Override

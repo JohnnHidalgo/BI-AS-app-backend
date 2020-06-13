@@ -38,10 +38,12 @@ public class DashboardController {
 
 
     @PostMapping("/add/")
-    public Dashboard addView(@RequestBody Dashboard dashboard){
+    public Dashboard addView(@RequestBody DashboardDto dashboard){
         LOGGER.info("Agregando usuario");
-        return dashboardService.addView(dashboard);
+        return dashboardService.addDashboard(dashboard);
     }
+
+
 
     @RequestMapping("/{id}")
     public DashboardDto getDashboardByIdDash(@PathVariable("id") Integer idDashboard){

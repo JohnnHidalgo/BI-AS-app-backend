@@ -2,6 +2,7 @@ package com.bi_as.biasApp.service;
 
 import com.bi_as.biasApp.dao.DashboardRepository;
 import com.bi_as.biasApp.domain.Dashboard;
+import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.dto.DashboardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,12 @@ import java.util.List;
 @Service
 public class DashboardService {
     DashboardRepository dashboardRepository;
+    UserService userService;
 
     @Autowired
-    public DashboardService(DashboardRepository dashboardRepository) {
+    public DashboardService(DashboardRepository dashboardRepository,UserService userService) {
         this.dashboardRepository = dashboardRepository;
+        this.userService=userService;
     }
 
     public List<DashboardDto> findAllDashboard(){
@@ -26,7 +29,15 @@ public class DashboardService {
         return dashboardDtoList;
     }
 
-    public Dashboard addView(Dashboard dashboard) {
+    public Dashboard addDashboard(DashboardDto dashboardDto) {
+        User user=userService.getUserByid(dashboardDto.getIdUser());
+        Dashboard dashboard=new Dashboard();
+        dashboard.setIdDashboard(dashboardDto.getIdDashboard());
+        dashboard.setName(dashboardDto.getName());
+        dashboard.setTxUser(dashboardDto.getTxUser());
+        dashboard.setTxHost(dashboardDto.getTxHost());
+        dashboard.setTxDate(dashboardDto.getTxDate());
+        dashboard.setUserIdUser(user);
         dashboardRepository.save(dashboard);
         return dashboard;
     }
@@ -35,4 +46,6 @@ public class DashboardService {
         Dashboard dashboard=dashboardRepository.findByIdDashboard(idDashboard);
         return dashboard;
     }
+
+
 }
