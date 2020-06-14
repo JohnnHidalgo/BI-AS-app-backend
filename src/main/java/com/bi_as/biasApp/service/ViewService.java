@@ -17,8 +17,9 @@ public class ViewService {
     DashboardService dashboardService;
 
     @Autowired
-    public ViewService(ViewRepository viewRepository) {
+    public ViewService(ViewRepository viewRepository,DashboardService dashboardService) {
         this.viewRepository = viewRepository;
+        this.dashboardService=dashboardService;
     }
 
     public List<ViewDto> findAllViews(){

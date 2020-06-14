@@ -19,7 +19,8 @@ public class GraphictypeDto {
         this.active = active;
     }
 
-
+    public GraphictypeDto() {
+    }
 
     public Integer getIdGraphictype() {
         return idGraphictype;

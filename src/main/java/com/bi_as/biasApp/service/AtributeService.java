@@ -4,7 +4,6 @@ import com.bi_as.biasApp.dao.AtributeRepository;
 import com.bi_as.biasApp.domain.Atribute;
 import com.bi_as.biasApp.domain.Graphic;
 import com.bi_as.biasApp.dto.AtributeDto;
-import com.sun.org.apache.xml.internal.security.keys.content.keyvalues.RSAKeyValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +14,12 @@ import java.util.List;
 public class AtributeService {
 
     AtributeRepository atributeRepository;
+    GraphicService graphicService;
 
     @Autowired
-    public AtributeService(AtributeRepository atributeRepository) {
+    public AtributeService(AtributeRepository atributeRepository,GraphicService graphicService) {
         this.atributeRepository = atributeRepository;
+        this.graphicService=graphicService;
     }
 
     public List<AtributeDto> findAllAtribute(){
@@ -31,9 +32,8 @@ public class AtributeService {
     }
 
     public Atribute addAtribute(AtributeDto atributeDto) {
-        Graphic graphic=new Graphic();
         Atribute atribute=new Atribute();
-        atribute.setIdAtribute(atributeDto.getIdAtribute());
+        Graphic graphic=graphicService.getGraphicByidGraphic(atributeDto.getGraphicidgraphic());
         atribute.setData(atributeDto.getData());
         atribute.setActive(atributeDto.getActive());
         atribute.setGraphicidgraphic(graphic);
