@@ -41,12 +41,12 @@ public class ViewController {
         LOGGER.info("Agregando usuario");
         return viewService.addView(view);
     }
-
+/*
     @RequestMapping("/{id}")
     public ViewDto getIdViewByView(@PathVariable("id") Integer id){
         LOGGER.info("Entrando por id "+id);
         return new ViewDto(viewService.getViewByidView(id));
-    }
+    }*/
 
 
 

@@ -43,8 +43,6 @@ public class DashboardController {
         return dashboardService.addDashboard(dashboard);
     }
 
-
-
     @RequestMapping("/{id}")
     public DashboardDto getDashboardByIdDash(@PathVariable("id") Integer idDashboard){
         LOGGER.info("Agregando usuario");

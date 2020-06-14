@@ -2,7 +2,6 @@ package com.bi_as.biasApp.controller;
 
 
 import com.bi_as.biasApp.domain.Atribute;
-import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.dto.AtributeDto;
 import com.bi_as.biasApp.service.AtributeService;
 import org.slf4j.Logger;
@@ -38,9 +37,9 @@ public class AtributeController {
 
 
     @PostMapping("/add/")
-    public Atribute addAtribute(@RequestBody AtributeDto atribute){
+    public Atribute addAtribute(@RequestBody AtributeDto attribute){
         LOGGER.info("Agregando usuario");
-        return atributeService.addAtribute(atribute);
+        return atributeService.addAtribute(attribute);
     }
 
 
