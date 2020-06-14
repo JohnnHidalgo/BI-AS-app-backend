@@ -1,6 +1,7 @@
 package com.bi_as.biasApp.service;
 
 import com.bi_as.biasApp.dao.ViewRepository;
+import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.domain.View;
 import com.bi_as.biasApp.dto.ViewDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.List;
 public class ViewService {
 
     ViewRepository viewRepository;
+    DashboardService dashboardService;
 
     @Autowired
     public ViewService(ViewRepository viewRepository) {
@@ -28,7 +30,17 @@ public class ViewService {
     }
 
 
-    public View addView(View view){
+    public View addView(ViewDto viewDto){
+        View view=new View();
+        Dashboard dashboard=dashboardService.getDashboardByIdDashboard(viewDto.getIdDashboard());
+        view.setIdView(viewDto.getIdView());
+        view.setName(view.getName());
+        view.setActive(view.getActive());
+        view.setTxUser(viewDto.getTxUser());
+        view.setTxDate(viewDto.getTxDate());
+        view.setTxHost(viewDto.getTxHost());
+        view.setDashboardiddashboard(dashboard);
+//        view.se
         viewRepository.save(view);
         return view;
     }

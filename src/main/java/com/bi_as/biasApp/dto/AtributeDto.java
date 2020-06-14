@@ -9,7 +9,7 @@ public class AtributeDto {
     private Integer idAtribute;
     private String data;
     private int active;
-    private Graphic graphicidgraphic;
+    private int graphicidgraphic;
 
     public AtributeDto(Atribute atribute) {
         this.idAtribute=atribute.getIdAtribute();
@@ -17,11 +17,14 @@ public class AtributeDto {
         this.active=atribute.getActive();
     }
 
-    public AtributeDto(Integer idAtribute, String data, int active, Graphic graphicidgraphic) {
+    public AtributeDto(Integer idAtribute, String data, int active, int graphicidgraphic) {
         this.idAtribute = idAtribute;
         this.data = data;
         this.active = active;
         this.graphicidgraphic = graphicidgraphic;
+    }
+
+    public AtributeDto() {
     }
 
     public Integer getIdAtribute() {
@@ -48,11 +51,11 @@ public class AtributeDto {
         this.active = active;
     }
 
-    public Graphic getGraphicidgraphic() {
+    public int getGraphicidgraphic() {
         return graphicidgraphic;
     }
 
-    public void setGraphicidgraphic(Graphic graphicidgraphic) {
+    public void setGraphicidgraphic(int graphicidgraphic) {
         this.graphicidgraphic = graphicidgraphic;
     }
 

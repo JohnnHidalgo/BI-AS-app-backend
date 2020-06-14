@@ -38,9 +38,9 @@ public class AtributeController {
 
 
     @PostMapping("/add/")
-    public Atribute addView(@RequestBody Atribute atribute){
+    public Atribute addAtribute(@RequestBody AtributeDto atribute){
         LOGGER.info("Agregando usuario");
-        return atributeService.addView(atribute);
+        return atributeService.addAtribute(atribute);
     }
 
 

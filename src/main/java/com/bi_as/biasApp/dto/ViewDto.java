@@ -9,6 +9,7 @@ public class ViewDto {
     private String txHost;
     private String txDate;
     private int active;
+    private int idDashboard;
 
     public ViewDto() {
     }
@@ -68,6 +69,14 @@ public class ViewDto {
 
     public void setActive(int active) {
         this.active = active;
+    }
+
+    public int getIdDashboard() {
+        return idDashboard;
+    }
+
+    public void setIdDashboard(int idDashboard) {
+        this.idDashboard = idDashboard;
     }
 
     @Override

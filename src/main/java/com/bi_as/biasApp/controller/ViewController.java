@@ -37,7 +37,7 @@ public class ViewController {
     }
 
     @PostMapping("/add/")
-    public View addView(@RequestBody View view){
+    public View addView(@RequestBody ViewDto view){
         LOGGER.info("Agregando usuario");
         return viewService.addView(view);
     }
