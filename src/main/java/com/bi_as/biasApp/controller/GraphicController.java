@@ -36,7 +36,7 @@ public class GraphicController {
 
 
     @PostMapping("/add/")
-    public Graphic addView(@RequestBody Graphic graphic){
+    public Graphic addView(@RequestBody GraphicDto graphic){
         LOGGER.info("Agregando usuario");
         return graphicService.addView(graphic);
     }

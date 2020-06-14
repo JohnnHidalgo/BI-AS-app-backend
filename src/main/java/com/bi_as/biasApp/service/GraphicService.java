@@ -1,7 +1,10 @@
 package com.bi_as.biasApp.service;
 
 import com.bi_as.biasApp.dao.GraphicRepository;
+import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.domain.Graphic;
+import com.bi_as.biasApp.domain.Graphictype;
+import com.bi_as.biasApp.domain.View;
 import com.bi_as.biasApp.dto.GraphicDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +16,21 @@ import java.util.List;
 public class GraphicService {
 
     GraphicRepository graphicRepository;
+    ViewService viewService;
+    GraphicTypeService graphicTypeService;
 
     @Autowired
-    public GraphicService(GraphicRepository graphicRepository) {
+    public GraphicService(GraphicRepository graphicRepository, ViewService viewService, GraphicTypeService graphicTypeService) {
         this.graphicRepository = graphicRepository;
+        this.viewService = viewService;
+        this.graphicTypeService = graphicTypeService;
     }
+
+
+
+
+
+
 
     public List<GraphicDto> findAllGraphic(){
         List<GraphicDto> GraphicDtoList= new ArrayList<>();
@@ -27,7 +40,18 @@ public class GraphicService {
         return GraphicDtoList;
     }
 
-    public Graphic addView(Graphic graphic) {
+    public Graphic addView(GraphicDto graphicDto) {
+        View view=viewService.getViewByidView(graphicDto.getIdView());
+        Graphictype graphictype=graphicTypeService.getGraphicTypeByIdGraphicType(graphicDto.getIdTypeGraphic());
+        Graphic graphic=new Graphic();
+
+        graphic.setName(graphicDto.getName());
+        graphic.setActive(graphicDto.getActive());
+        graphic.setTxDate(graphicDto.getTxDate());
+        graphic.setTxHost(graphicDto.getTxHost());
+        graphic.setTxUser(graphicDto.getTxUser());
+        graphic.setViewidview(view);
+        graphic.setGraphicTypeidgraphictype(graphictype);
         graphicRepository.save(graphic);
         return graphic;
     }
