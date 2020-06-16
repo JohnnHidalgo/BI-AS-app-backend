@@ -2,6 +2,8 @@ package com.bi_as.biasApp.dto;
 
 import com.bi_as.biasApp.domain.Dashboard;
 
+import java.util.List;
+
 public class DashboardDto {
     private Integer idDashboard;
     private String name;
@@ -10,6 +12,7 @@ public class DashboardDto {
     private String txDate;
     private int active;
     private int idUser;
+    private List<ViewDto> viewList;
 
     public DashboardDto(Dashboard dashboard) {
         this.idDashboard=dashboard.getIdDashboard();
@@ -90,6 +93,14 @@ public class DashboardDto {
         this.idUser = idUser;
     }
 
+    public List<ViewDto> getViewList() {
+        return viewList;
+    }
+
+    public void setViewList(List<ViewDto> viewList) {
+        this.viewList = viewList;
+    }
+
     @Override
     public String toString() {
         return "DashboardDto{" +
@@ -101,4 +112,5 @@ public class DashboardDto {
                 ", active=" + active +
                 '}';
     }
+
 }

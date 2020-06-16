@@ -1,7 +1,9 @@
 package com.bi_as.biasApp.controller;
 
 import com.bi_as.biasApp.domain.Dashboard;
+import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.dto.DashboardDto;
+import com.bi_as.biasApp.dto.UserDto;
 import com.bi_as.biasApp.service.DashboardService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,17 @@ public class DashboardController {
         return dashboardDtoList;
     }
 
+    @RequestMapping(/*value =*/"/userdash/"/*,method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE*/)
+    public UserDto getAllDashboardsByIdUser(@RequestBody DashboardDto dashboard){
+/*        List<DashboardDto> dashboardDtoList=new ArrayList<>();
+        for(DashboardDto dashboardDto:dashboardService.findAllDashboard()){
+            dashboardDtoList.add(dashboardDto);
+        }
+        return dashboardDtoList;*/
+        return dashboardService.findDashboardListByUserIdWithDashboardDtoParameter(dashboard);
+//        return dashboardService.findDashboardListByUserId(1);
+    }
 
     @PostMapping("/add/")
     public Dashboard addView(@RequestBody DashboardDto dashboard){
