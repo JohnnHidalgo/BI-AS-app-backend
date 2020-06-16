@@ -35,8 +35,8 @@ public class ViewService {
         View view=new View();
         Dashboard dashboard=dashboardService.getDashboardByIdDashboard(viewDto.getIdDashboard());
         view.setIdView(viewDto.getIdView());
-        view.setName(view.getName());
-        view.setActive(view.getActive());
+        view.setName(viewDto.getName());
+        view.setActive(viewDto.getActive());
         view.setTxUser(viewDto.getTxUser());
         view.setTxDate(viewDto.getTxDate());
         view.setTxHost(viewDto.getTxHost());

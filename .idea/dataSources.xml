@@ -5,13 +5,7 @@
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/ejemplo</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="bias@localhost" uuid="122d4216-21a0-4963-ad3a-679094419348">
-      <driver-ref>mysql.8</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/bias?serverTimezone=UTC</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3307/ejemplo?serverTimezone=UTC</jdbc-url>
     </data-source>
   </component>
 </project>
