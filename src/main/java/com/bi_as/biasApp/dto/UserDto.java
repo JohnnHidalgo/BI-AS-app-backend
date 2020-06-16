@@ -2,6 +2,8 @@ package com.bi_as.biasApp.dto;
 
 import com.bi_as.biasApp.domain.User;
 
+import java.util.List;
+
 public class UserDto {
 
     private Integer idUser;
@@ -12,6 +14,12 @@ public class UserDto {
     private String secondLastName;
     private String mail;
     private String password;
+    private List<DashboardDto> dashboardDtoList;
+
+
+    public UserDto(){
+
+    }
 
     public UserDto(User user) {
         this.idUser=user.getIdUser();
@@ -24,7 +32,7 @@ public class UserDto {
         this.password=user.getPassword();
     }
 
-    public UserDto(Integer idUser, String nicknameUser, String name, String secondName, String lastName, String secondLastName, String mail, String password) {
+/*    public UserDto(Integer idUser, String nicknameUser, String name, String secondName, String lastName, String secondLastName, String mail, String password) {
         this.idUser = idUser;
         this.nicknameUser = nicknameUser;
         this.name = name;
@@ -33,7 +41,7 @@ public class UserDto {
         this.secondLastName = secondLastName;
         this.mail = mail;
         this.password = password;
-    }
+    }*/
 
     public Integer getIdUser() {
         return idUser;
@@ -97,6 +105,14 @@ public class UserDto {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<DashboardDto> getDashboardDtoList() {
+        return dashboardDtoList;
+    }
+
+    public void setDashboardDtoList(List<DashboardDto> dashboardDtoList) {
+        this.dashboardDtoList = dashboardDtoList;
     }
 
     @Override

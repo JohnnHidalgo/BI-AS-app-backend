@@ -2,6 +2,7 @@ package com.bi_as.biasApp.controller;
 
 import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.domain.View;
+import com.bi_as.biasApp.dto.DashboardDto;
 import com.bi_as.biasApp.dto.ViewDto;
 import com.bi_as.biasApp.service.UserService;
 import com.bi_as.biasApp.service.ViewService;
@@ -34,6 +35,13 @@ public class ViewController {
             viewDtoList.add(viewDto);
         }
         return viewDtoList;
+    }
+
+    @RequestMapping(value = "/dashviews/",method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public DashboardDto getViewListByIdDash(@RequestBody ViewDto view){
+        return viewService.findViewByIdDashboardWithViewDtoParameter(view);
+//        return viewService.findViewByIdDashboard(1);
     }
 
     @PostMapping("/add/")

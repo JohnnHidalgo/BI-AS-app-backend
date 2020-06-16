@@ -4,6 +4,7 @@ import com.bi_as.biasApp.dao.DashboardRepository;
 import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.domain.User;
 import com.bi_as.biasApp.dto.DashboardDto;
+import com.bi_as.biasApp.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +48,19 @@ public class DashboardService {
         return dashboard;
     }
 
+    public UserDto findDashboardListByUserIdWithDashboardDtoParameter(DashboardDto dashboardDto){
 
+        return findDashboardListByUserId(dashboardDto.getIdUser());
+    }
+
+    public UserDto findDashboardListByUserId(int idUser){
+        List<DashboardDto> dashboardDtoList=new ArrayList<>();
+        User user=userService.getUserByid(idUser);
+        UserDto userDto=new UserDto(user);
+        for(Dashboard dashboard:user.getDashboardList()){
+            dashboardDtoList.add(new DashboardDto(dashboard));
+        }
+        userDto.setDashboardDtoList(dashboardDtoList);
+        return userDto;
+    }
 }

@@ -3,6 +3,7 @@ package com.bi_as.biasApp.service;
 import com.bi_as.biasApp.dao.ViewRepository;
 import com.bi_as.biasApp.domain.Dashboard;
 import com.bi_as.biasApp.domain.View;
+import com.bi_as.biasApp.dto.DashboardDto;
 import com.bi_as.biasApp.dto.ViewDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,8 @@ public class ViewService {
         View view=new View();
         Dashboard dashboard=dashboardService.getDashboardByIdDashboard(viewDto.getIdDashboard());
         view.setIdView(viewDto.getIdView());
-        view.setName(view.getName());
-        view.setActive(view.getActive());
+        view.setName(viewDto.getName());
+        view.setActive(viewDto.getActive());
         view.setTxUser(viewDto.getTxUser());
         view.setTxDate(viewDto.getTxDate());
         view.setTxHost(viewDto.getTxHost());
@@ -53,5 +54,20 @@ public class ViewService {
             System.out.println("Es null la vista");
         }
         return view;
+    }
+
+    public DashboardDto findViewByIdDashboardWithViewDtoParameter(ViewDto viewDto){
+        return findViewByIdDashboard(viewDto.getIdDashboard());
+    }
+
+    public DashboardDto findViewByIdDashboard(int idDashboard){
+        List<ViewDto> viewDtoList=new ArrayList<>();
+        Dashboard dashboard=dashboardService.getDashboardByIdDashboard(idDashboard);
+        DashboardDto dashboardDto=new DashboardDto(dashboard);
+        for(View view:dashboard.getViewList()){
+            viewDtoList.add(new ViewDto(view));
+        }
+        dashboardDto.setViewList(viewDtoList);
+        return dashboardDto;
     }
 }
