@@ -38,16 +38,10 @@ public class DashboardController {
         return dashboardDtoList;
     }
 
-    @RequestMapping(/*value =*/"/userdash/"/*,method = RequestMethod.GET,
+    @RequestMapping(/*value =*/"/userdash/{id}"/*,method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE*/)
-    public UserDto getAllDashboardsByIdUser(@RequestBody DashboardDto dashboard){
-/*        List<DashboardDto> dashboardDtoList=new ArrayList<>();
-        for(DashboardDto dashboardDto:dashboardService.findAllDashboard()){
-            dashboardDtoList.add(dashboardDto);
-        }
-        return dashboardDtoList;*/
-        return dashboardService.findDashboardListByUserIdWithDashboardDtoParameter(dashboard);
-//        return dashboardService.findDashboardListByUserId(1);
+    public List<DashboardDto> getAllDashboardsByIdUser(@PathVariable("id") Integer idUser){
+        return dashboardService.findDashboardListByUserIdWithDashboardDtoParameter(idUser);
     }
 
     @PostMapping("/add/")

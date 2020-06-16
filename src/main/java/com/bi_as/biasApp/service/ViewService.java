@@ -56,18 +56,16 @@ public class ViewService {
         return view;
     }
 
-    public DashboardDto findViewByIdDashboardWithViewDtoParameter(ViewDto viewDto){
-        return findViewByIdDashboard(viewDto.getIdDashboard());
+    public List<ViewDto> findViewByIdDashboardWithViewDtoParameter(int idDashboard){
+        return findViewByIdDashboard(idDashboard);
     }
 
-    public DashboardDto findViewByIdDashboard(int idDashboard){
+    public List<ViewDto> findViewByIdDashboard(int idDashboard){
         List<ViewDto> viewDtoList=new ArrayList<>();
         Dashboard dashboard=dashboardService.getDashboardByIdDashboard(idDashboard);
-        DashboardDto dashboardDto=new DashboardDto(dashboard);
         for(View view:dashboard.getViewList()){
             viewDtoList.add(new ViewDto(view));
         }
-        dashboardDto.setViewList(viewDtoList);
-        return dashboardDto;
+        return viewDtoList;
     }
 }
