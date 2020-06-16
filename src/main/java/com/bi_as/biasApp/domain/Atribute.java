@@ -12,8 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -24,12 +22,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "atribute")
-@NamedQueries({
-    @NamedQuery(name = "Atribute.findAll", query = "SELECT a FROM Atribute a"),
-    @NamedQuery(name = "Atribute.findByIdAtribute", query = "SELECT a FROM Atribute a WHERE a.idAtribute = :idAtribute"),
-    @NamedQuery(name = "Atribute.findByData", query = "SELECT a FROM Atribute a WHERE a.data = :data"),
-    @NamedQuery(name = "Atribute.findByActive", query = "SELECT a FROM Atribute a WHERE a.active = :active")})
-public class Atribute implements Serializable {
+/*@NamedQueries({
+        @NamedQuery(name = "Atribute.findAll", query = "SELECT a FROM Atribute a"),
+        @NamedQuery(name = "Atribute.findByIdAtribute", query = "SELECT a FROM Atribute a WHERE a.idAtribute = :idAtribute"),
+        @NamedQuery(name = "Atribute.findByData", query = "SELECT a FROM Atribute a WHERE a.data = :data"),
+        @NamedQuery(name = "Atribute.findByTxUser", query = "SELECT a FROM Atribute a WHERE a.txUser = :txUser"),
+        @NamedQuery(name = "Atribute.findByTxHost", query = "SELECT a FROM Atribute a WHERE a.txHost = :txHost"),
+        @NamedQuery(name = "Atribute.findByTxDate", query = "SELECT a FROM Atribute a WHERE a.txDate = :txDate"),
+        @NamedQuery(name = "Atribute.findByActive", query = "SELECT a FROM Atribute a WHERE a.active = :active")})
+*/public class Atribute implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -37,15 +38,20 @@ public class Atribute implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_atribute")
     private Integer idAtribute;
-    @Basic(optional = false)
     @Column(name = "data")
     private String data;
     @Basic(optional = false)
+    @Column(name = "tx_user")
+    private String txUser;
+    @Basic(optional = false)
+    @Column(name = "tx_host")
+    private String txHost;
+    @Basic(optional = false)
+    @Column(name = "tx_date")
+    private String txDate;
+    @Basic(optional = false)
     @Column(name = "active")
     private int active;
-    @JoinColumn(name = "Graphic_id_graphic", referencedColumnName = "id_graphic")
-    @ManyToOne(optional = false)
-    private Graphic graphicidgraphic;
 
     public Atribute() {
     }
@@ -54,9 +60,11 @@ public class Atribute implements Serializable {
         this.idAtribute = idAtribute;
     }
 
-    public Atribute(Integer idAtribute, String data, int active) {
+    public Atribute(Integer idAtribute, String txUser, String txHost, String txDate, int active) {
         this.idAtribute = idAtribute;
-        this.data = data;
+        this.txUser = txUser;
+        this.txHost = txHost;
+        this.txDate = txDate;
         this.active = active;
     }
 
@@ -76,20 +84,36 @@ public class Atribute implements Serializable {
         this.data = data;
     }
 
+    public String getTxUser() {
+        return txUser;
+    }
+
+    public void setTxUser(String txUser) {
+        this.txUser = txUser;
+    }
+
+    public String getTxHost() {
+        return txHost;
+    }
+
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
+    }
+
+    public String getTxDate() {
+        return txDate;
+    }
+
+    public void setTxDate(String txDate) {
+        this.txDate = txDate;
+    }
+
     public int getActive() {
         return active;
     }
 
     public void setActive(int active) {
         this.active = active;
-    }
-
-    public Graphic getGraphicidgraphic() {
-        return graphicidgraphic;
-    }
-
-    public void setGraphicidgraphic(Graphic graphicidgraphic) {
-        this.graphicidgraphic = graphicidgraphic;
     }
 
     @Override
@@ -114,7 +138,7 @@ public class Atribute implements Serializable {
 
     @Override
     public String toString() {
-        return "proyectokajoy.biasgenerateentities.Atribute[ idAtribute=" + idAtribute + " ]";
+        return "proyectokajoy.biascorregido.Atribute[ idAtribute=" + idAtribute + " ]";
     }
-    
+
 }

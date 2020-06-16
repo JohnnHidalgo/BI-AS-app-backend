@@ -20,7 +20,7 @@ public class GraphicTypeService {
 
 
     public Graphictype getGraphicTypeByIdGraphicType(int idGraphicType){
-        Graphictype graphictype=graphicTypeRepository.findByIdGraphicType(idGraphicType);
+        Graphictype graphictype=graphicTypeRepository.findByIdGraphictype(idGraphicType);
         return graphictype;
     }
 }

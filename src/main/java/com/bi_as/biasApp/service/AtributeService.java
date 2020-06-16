@@ -14,12 +14,10 @@ import java.util.List;
 public class AtributeService {
 
     AtributeRepository atributeRepository;
-    GraphicService graphicService;
 
     @Autowired
-    public AtributeService(AtributeRepository atributeRepository,GraphicService graphicService) {
+    public AtributeService(AtributeRepository atributeRepository) {
         this.atributeRepository = atributeRepository;
-        this.graphicService=graphicService;
     }
 
     public List<AtributeDto> findAllAtribute(){
@@ -33,10 +31,11 @@ public class AtributeService {
 
     public Atribute addAtribute(AtributeDto atributeDto) {
         Atribute atribute=new Atribute();
-        Graphic graphic=graphicService.getGraphicByidGraphic(atributeDto.getGraphicidgraphic());
         atribute.setData(atributeDto.getData());
+        atribute.setTxUser(atribute.getTxUser());
+        atribute.setTxHost(atribute.getTxHost());
+        atribute.setTxDate(atribute.getTxDate());
         atribute.setActive(atributeDto.getActive());
-        atribute.setGraphicidgraphic(graphic);
         atributeRepository.save(atribute);
         return atribute;
     }
