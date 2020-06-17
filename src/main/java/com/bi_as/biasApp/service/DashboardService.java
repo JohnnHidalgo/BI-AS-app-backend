@@ -48,19 +48,17 @@ public class DashboardService {
         return dashboard;
     }
 
-    public UserDto findDashboardListByUserIdWithDashboardDtoParameter(DashboardDto dashboardDto){
+    public List<DashboardDto> findDashboardListByUserIdWithDashboardDtoParameter(int idUser){
 
-        return findDashboardListByUserId(dashboardDto.getIdUser());
+        return findDashboardListByUserId(idUser);
     }
 
-    public UserDto findDashboardListByUserId(int idUser){
+    public List<DashboardDto> findDashboardListByUserId(int idUser){
         List<DashboardDto> dashboardDtoList=new ArrayList<>();
         User user=userService.getUserByid(idUser);
-        UserDto userDto=new UserDto(user);
         for(Dashboard dashboard:user.getDashboardList()){
             dashboardDtoList.add(new DashboardDto(dashboard));
         }
-        userDto.setDashboardDtoList(dashboardDtoList);
-        return userDto;
+        return dashboardDtoList;
     }
 }

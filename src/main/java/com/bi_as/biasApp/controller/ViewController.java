@@ -37,10 +37,10 @@ public class ViewController {
         return viewDtoList;
     }
 
-    @RequestMapping(value = "/dashviews/",method = RequestMethod.GET,
+    @RequestMapping(value = "/dashviews/{id}",method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public DashboardDto getViewListByIdDash(@RequestBody ViewDto view){
-        return viewService.findViewByIdDashboardWithViewDtoParameter(view);
+    public List<ViewDto> getViewListByIdDash(@PathVariable("id") Integer idDashboard){
+        return viewService.findViewByIdDashboardWithViewDtoParameter(idDashboard);
 //        return viewService.findViewByIdDashboard(1);
     }
 
