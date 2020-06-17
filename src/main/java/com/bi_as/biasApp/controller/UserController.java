@@ -52,11 +52,19 @@ public class UserController {
 
     }
 
+    @RequestMapping("/userNick/{nick}")
+    public UserDto getUserByNickname(@PathVariable("nick") String nickUser){
+        LOGGER.info("Obteniendo id graphic");
+        return new UserDto(userService.getUserByNickname(nickUser));
+    }
+
+
     @RequestMapping("/{id}")
     public UserDto getGraphicByIdGraphic(@PathVariable("id") Integer idUser){
         LOGGER.info("Obteniendo id graphic");
         return new UserDto(userService.getUserByid(idUser));
     }
+
 
 
 
