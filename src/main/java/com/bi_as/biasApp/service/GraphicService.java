@@ -32,7 +32,11 @@ public class GraphicService {
         }
         return GraphicDtoList;
     }
-
+    /*
+    public List<AtributeService> saveAttributeService(int idGraphic,int idAtribute){
+       Graphic graphic=getGraphicByidGraphic(idGraphic);
+       Atribute atribute=
+    }*/
 
     public Graphic addView(GraphicDto graphicDto) {
         View view=viewService.getViewByidView(graphicDto.getIdView());
@@ -62,6 +66,6 @@ public class GraphicService {
             atributeList.add(atributeGraphic.getIdAtribute());
         }
         return atributeList;
-    }
-*/
+    }*/
+
 }

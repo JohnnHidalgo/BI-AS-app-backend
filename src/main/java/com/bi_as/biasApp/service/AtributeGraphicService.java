@@ -4,6 +4,7 @@ import com.bi_as.biasApp.dao.AtributeGraphicRepository;
 import com.bi_as.biasApp.domain.Atribute;
 import com.bi_as.biasApp.domain.AtributeGraphic;
 import com.bi_as.biasApp.domain.Graphic;
+import com.bi_as.biasApp.dto.GraphicColumnsDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +43,16 @@ public class AtributeGraphicService {
             atributeList.add(atributeGraphic.getIdAtribute());
         }
         return atributeList;
+    }
+
+    public List<GraphicColumnsDto> getGraphicColumnsListByIdGraphic(int idGraphic) {
+        List<Atribute> atributeList=getAtributeListByIdGraphic(idGraphic);
+        List<GraphicColumnsDto> graphicColumnsDtoList=new ArrayList<>();
+        for(Atribute atribute:atributeList){
+            String[] arrayString=atribute.getData().split(",");
+            graphicColumnsDtoList.add(new GraphicColumnsDto(arrayString[0],Integer.parseInt(arrayString[3])));
+        }
+        return graphicColumnsDtoList;
     }
 
 }
