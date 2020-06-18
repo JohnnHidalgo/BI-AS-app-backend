@@ -35,13 +35,20 @@ public class AtributeController {
     return atributeDtoList;
     }
 
+    /*
 
     @PostMapping("/add/")
     public Atribute addAtribute(@RequestBody AtributeDto attribute){
         LOGGER.info("Agregando usuario");
         return atributeService.addAtribute(attribute);
-    }
+    }*/
 
+
+    @PostMapping("/addAtributeArray/")
+    public List<String> addAtributeList(@RequestBody List<String> attribute){
+        LOGGER.info("Agregando usuario");
+        return atributeService.saveListOfAttribute(attribute);
+    }
 
     @RequestMapping("/{id}")
     public AtributeDto getViewByidView(@PathVariable("id") Integer id){
