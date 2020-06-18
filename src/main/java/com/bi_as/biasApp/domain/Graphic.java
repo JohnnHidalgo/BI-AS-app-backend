@@ -62,6 +62,10 @@ public class Graphic implements Serializable {
     private List<Atribute> atributeList;
     @JoinColumn(name = "GraphicType_id_graphictype", referencedColumnName = "id_graphictype")
     @ManyToOne(optional = false)*/
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idGraphic")
+    private List<AtributeGraphic> atributeGraphicList;
+    @JoinColumn(name = "GraphicType_id_graphictype", referencedColumnName = "id_graphictype")
+    @ManyToOne(optional = false)
     private Graphictype graphicTypeidgraphictype;
     @JoinColumn(name = "View_id_view", referencedColumnName = "id_view")
     @ManyToOne(optional = false)
@@ -138,6 +142,14 @@ public class Graphic implements Serializable {
     public void setAtributeList(List<Atribute> atributeList) {
         this.atributeList = atributeList;
     }*/
+    public List<AtributeGraphic> getAtributeGraphicList() {
+        return atributeGraphicList;
+    }
+
+    public void setAtributeGraphicList(List<AtributeGraphic> atributeGraphicList) {
+        this.atributeGraphicList = atributeGraphicList;
+    }
+
 
     public Graphictype getGraphicTypeidgraphictype() {
         return graphicTypeidgraphictype;

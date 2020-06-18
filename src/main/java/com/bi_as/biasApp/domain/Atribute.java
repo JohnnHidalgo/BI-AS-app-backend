@@ -6,15 +6,8 @@
 package com.bi_as.biasApp.domain;
 
 import java.io.Serializable;
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
+import java.util.List;
+import javax.persistence.*;
 
 /**
  *
@@ -52,6 +45,8 @@ import javax.persistence.Table;
     @Basic(optional = false)
     @Column(name = "active")
     private int active;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idAtribute")
+    private List<AtributeGraphic> atributeGraphicList;
 
     public Atribute() {
     }
@@ -134,6 +129,14 @@ import javax.persistence.Table;
             return false;
         }
         return true;
+    }
+
+    public List<AtributeGraphic> getAtributeGraphicList() {
+        return atributeGraphicList;
+    }
+
+    public void setAtributeGraphicList(List<AtributeGraphic> atributeGraphicList) {
+        this.atributeGraphicList = atributeGraphicList;
     }
 
     @Override

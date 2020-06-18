@@ -1,10 +1,8 @@
 package com.bi_as.biasApp.service;
 
 import com.bi_as.biasApp.dao.GraphicRepository;
-import com.bi_as.biasApp.domain.Dashboard;
-import com.bi_as.biasApp.domain.Graphic;
-import com.bi_as.biasApp.domain.Graphictype;
-import com.bi_as.biasApp.domain.View;
+import com.bi_as.biasApp.domain.*;
+import com.bi_as.biasApp.dto.AtributeDto;
 import com.bi_as.biasApp.dto.GraphicDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,11 +25,6 @@ public class GraphicService {
     }
 
 
-
-
-
-
-
     public List<GraphicDto> findAllGraphic(){
         List<GraphicDto> GraphicDtoList= new ArrayList<>();
         for (Graphic graphic:graphicRepository.findAll()) {
@@ -40,11 +33,11 @@ public class GraphicService {
         return GraphicDtoList;
     }
 
+
     public Graphic addView(GraphicDto graphicDto) {
         View view=viewService.getViewByidView(graphicDto.getIdView());
         Graphictype graphictype=graphicTypeService.getGraphicTypeByIdGraphicType(graphicDto.getIdTypeGraphic());
         Graphic graphic=new Graphic();
-
         graphic.setName(graphicDto.getName());
         graphic.setActive(graphicDto.getActive());
         graphic.setTxDate(graphicDto.getTxDate());
@@ -60,5 +53,15 @@ public class GraphicService {
         Graphic graphic= graphicRepository.findByIdGraphic(idGraphic);
         return graphic;
     }
-
+/*
+    public List<Atribute> getAtributeListByIdGraphic(int idGraphic) {
+        Graphic graphic=graphicRepository.findByIdGraphic(idGraphic);
+        List<AtributeGraphic> atributeGraphicList=graphic.getAtributeGraphicList();
+        List<Atribute> atributeList=new ArrayList<>();
+        for(AtributeGraphic atributeGraphic:atributeGraphicList){
+            atributeList.add(atributeGraphic.getIdAtribute());
+        }
+        return atributeList;
+    }
+*/
 }

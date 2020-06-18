@@ -1,5 +1,6 @@
 package com.bi_as.biasApp.controller;
 
+import com.bi_as.biasApp.domain.Atribute;
 import com.bi_as.biasApp.domain.Graphic;
 import com.bi_as.biasApp.dto.GraphicDto;
 import com.bi_as.biasApp.service.GraphicService;
@@ -45,5 +46,12 @@ public class GraphicController {
         LOGGER.info("Obteniendo id graphic");
         return new GraphicDto(graphicService.getGraphicByidGraphic(idgraphic));
     }
+/*
+    @RequestMapping("/attributesByGraphic/{id}")
+    public List<Atribute> getGraphicByIdGraphic(@PathVariable("id") int idgraphic){
+        LOGGER.info("Obteniendo id graphic");
+        return graphicService.getAtributeListByIdGraphic(idgraphic);
+    }
+*/
 
 }
